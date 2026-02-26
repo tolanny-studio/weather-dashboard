@@ -1,16 +1,14 @@
-import React from 'react'
-
-import weatherService from '../services/weatherService'
-import Header from './Header'
+import React from "react";
+import Header from "./Header";
+import useWeather from "../hooks/useWeather";
 
 const WeatherCard = () => {
-  // const url = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=40160f26301990c0f2ef906eca10c59f`
-  weatherService.get().then(res=>console.log(res.data)).catch(err=>console.log(err.message))
+  const {handleSearchSubmit,weatherService} = useWeather()
   return (
-    <div className='bg-blue-200 min-h-screen'>
-    <Header />
+    <div className="bg-blue-200 min-h-screen">
+      <Header handleSearchSubmit = {handleSearchSubmit}/>
     </div>
-  )
-}
+  );
+};
 
-export default WeatherCard
+export default WeatherCard;

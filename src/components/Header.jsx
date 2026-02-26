@@ -1,12 +1,8 @@
 import { CiSearch } from "react-icons/ci";
 import { SiAccuweather } from "react-icons/si";
 
-const Header = () => {
-  const handleSearchSubmit = (FormData) =>{
-    const location = FormData.get('location')
-    console.log(location);
-    
-  }
+const Header = ({handleSearchSubmit}) => {
+
   return (
     <div className="flex flex-col justify-center items-center bg-blue-50 h-auto py-2 gap-1.5 shadow-2xs ">
       <div className="flex justify-center items-center text-3xl">
