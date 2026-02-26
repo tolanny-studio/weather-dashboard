@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+
+@layer base{
+  h1{
+    @apply text-amber-200
+  }
+}
