@@ -3,7 +3,7 @@ import { MdCloudySnowing } from "react-icons/md";
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <div className="flex flex-2">Main</div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { CiSearch } from "react-icons/ci";
+import { FaSearch } from "react-icons/fa";
 
 const Footer = ({ getLocation }) => {
   const handleSearchSubmit = (FormData) => {
@@ -7,21 +7,22 @@ const Footer = ({ getLocation }) => {
     // console.log(location);
   };
   return (
-    <div className="footer">
-      <form action={handleSearchSubmit} className="">
-        <div className="flex justify-center items-center bg-blue-300 rounded-full shadow-md pl-1">
-          <input
-            className="rounded-tl-full rounded-bl-full focus:outline-0 p-0.5 pl-4 text-white text-xs"
-            type="text"
-            name="location"
-          />
-          <button
-            type="submit"
-            className="text-2xl text-blue-500 p-0.5 bg-white rounded-tr-full rounded-br-full"
-          >
-            <CiSearch />
-          </button>
-        </div>
+    <div className=" flex justify-center items-center flex-1 bg-[linear-gradient(45deg,#381A7D_0%,#5F2CDD_50%,#6D3CC3_100%)] rounded-t-2xl">
+      <form
+        action={handleSearchSubmit}
+        className="flex"
+      >
+        <input
+          className="rounded-tl-full rounded-bl-full focus:outline-0 p-0.5 pl-4 text-white text-xs bg-[#0A111E]"
+          type="text"
+          name="location"
+        />
+        <button
+          type="submit"
+          className="text-2xl text-[#0A111E] p-0.5 bg-white rounded-tr-full rounded-br-full"
+        >
+          <FaSearch />
+        </button>
       </form>
     </div>
   );
