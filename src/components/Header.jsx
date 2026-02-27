@@ -1,7 +1,12 @@
 import { CiSearch } from "react-icons/ci";
 import { SiAccuweather } from "react-icons/si";
 
-const Header = ({handleSearchSubmit}) => {
+const Header = ({ getLocation }) => {
+  const handleSearchSubmit = (FormData) => {
+    const location = FormData.get("location");
+    getLocation(location);
+    // console.log(location);
+  };
 
   return (
     <div className="flex flex-col justify-center items-center bg-blue-50 h-auto py-2 gap-1.5 shadow-2xs ">
@@ -11,14 +16,18 @@ const Header = ({handleSearchSubmit}) => {
         </span>
       </div>
       <form action={handleSearchSubmit} className="">
-        <div className="flex justify-center items-center bg-blue-300 rounded-full shadow-md">
+        <div className="flex justify-center items-center bg-blue-300 rounded-full shadow-md pl-1">
           <input
             className="rounded-tl-full rounded-bl-full focus:outline-0 p-0.5 pl-4 text-white text-xs"
-            type="text" name="location"
+            type="text"
+            name="location"
           />
-          <span className="text-2xl text-blue-500 p-0.5 bg-white rounded-tr-full rounded-br-full">
+          <button
+            type="submit"
+            className="text-2xl text-blue-500 p-0.5 bg-white rounded-tr-full rounded-br-full"
+          >
             <CiSearch />
-          </span>
+          </button>
         </div>
       </form>
     </div>

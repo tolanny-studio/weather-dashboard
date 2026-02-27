@@ -3,10 +3,10 @@ import Header from "./Header";
 import useWeather from "../hooks/useWeather";
 
 const WeatherCard = () => {
-  const {handleSearchSubmit,weatherService} = useWeather()
+  const {getLocation} = useWeather()
   return (
     <div className="bg-blue-200 min-h-screen">
-      <Header handleSearchSubmit = {handleSearchSubmit}/>
+      <Header getLocation={getLocation}/>
     </div>
   );
 };
