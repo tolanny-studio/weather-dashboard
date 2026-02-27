@@ -7,8 +7,8 @@ import Footer from "./Footer";
 const WeatherCard = () => {
   const { getLocation } = useWeather();
   return (
-    <div className="bg-blue-200 min-h-screen flex flex-col">
-      <div className="flex-4">
+    <div className="bg-[#0A111E] min-h-screen flex flex-col">
+      <div className="flex-4 bg-[linear-gradient(-45deg,#ff0000_0%,#5F2CDD_50%,#6D3CC3f_100%)]">
         <Header />
         <Main />
       </div>

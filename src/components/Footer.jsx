@@ -1,13 +1,14 @@
 import { CiSearch } from "react-icons/ci";
 
-const Footer = ({getLocation}) => {
-    const handleSearchSubmit = (FormData) => {
+const Footer = ({ getLocation }) => {
+  const handleSearchSubmit = (FormData) => {
     const location = FormData.get("location");
     getLocation(location);
     // console.log(location);
   };
   return (
-          <form action={handleSearchSubmit} className="">
+    <div className="footer">
+      <form action={handleSearchSubmit} className="">
         <div className="flex justify-center items-center bg-blue-300 rounded-full shadow-md pl-1">
           <input
             className="rounded-tl-full rounded-bl-full focus:outline-0 p-0.5 pl-4 text-white text-xs"
@@ -22,7 +23,8 @@ const Footer = ({getLocation}) => {
           </button>
         </div>
       </form>
-  )
-}
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;
