@@ -34,7 +34,7 @@ const Header = ({
   const backgroundImage = getWeatherBackground(main);
 
   return (
-    <div className="relative flex items-center flex-col flex-4 rounded-b-2xl p-2 overflow-hidden text-shadow-lg">
+    <div className="relative flex items-center flex-col flex-4 rounded-b-2xl p-2 overflow-hidden text-shadow-lg md:py-6">
 
       {/* ⭐ Dynamic Weather Background */}
       <img
@@ -56,21 +56,21 @@ const Header = ({
           </div>
         )}
 
-        <div className="flex mt-25">
+        <div className="flex mt-15 md:">
           <h1 className="font-bold text-8xl">
             {Number(temperature).toFixed(1)}
           </h1>
           <sup className="text-4xl font-semibold text-amber-100 mt-4">°</sup>
         </div>
 
-        <p className="font-medium text-white">{description}</p>
-        <p className="text-xs font-light text-white">
+        <p className="font-medium text-white md:text-lg">{description}</p>
+        <p className="text-xs font-light text-white md:font-normal">
           {formatDate(new Date())}
         </p>
 
         <div className="border w-[70%] my-6 text-blue-200"></div>
 
-        <div className="flex justify-center text-xs font-light w-full gap-3 text-white">
+        <div className="flex justify-center text-xs font-light w-full gap-3 text-white md:text-sm font-normal">
           <div className="flex items-center gap-1">
             <WiHumidity />
             <span>{Number(humidity)}%</span>
@@ -89,7 +89,7 @@ const Header = ({
 
         <div className="border w-[70%] my-6 text-blue-200"></div>
 
-        <div className="flex justify-center text-xs font-light w-full gap-3 text-white">
+        <div className="flex justify-center text-xs font-light w-full gap-3 text-white md:text-sm font-normal">
           <div className="flex items-center gap-1">
             <FiSunrise />
             <span>{sunrise}</span>
