@@ -1,5 +1,4 @@
-import { IoLocationOutline } from "react-icons/io5";
-import { MdCloudySnowing } from "react-icons/md";
+
 import { data } from "../randomCity.js";
 
 const Main = () => {

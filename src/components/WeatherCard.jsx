@@ -5,10 +5,29 @@ import Main from "./Main";
 import Footer from "./Footer";
 
 const WeatherCard = () => {
-  const { getLocation } = useWeather();
+  const {
+    getLocation,
+    name,
+    country,
+    temperature,
+    humidity,
+    pressure,
+    wind,
+    sunRise,
+    sunSet,
+  } = useWeather();
   return (
     <div className="bg-[#0A111E] min-h-screen flex flex-col">
-      <Header />
+      <Header
+        name={name}
+        country={country}
+        temperature={temperature}
+        humidity={humidity}
+        pressure={pressure}
+        wind={wind}
+        sunrise={sunRise}
+        sunset={sunSet}
+      />
       <Main />
       <Footer getLocation={getLocation} />
     </div>
@@ -16,5 +35,3 @@ const WeatherCard = () => {
 };
 
 export default WeatherCard;
-
-// bg-[linear-gradient(-45deg,#ff0000_0%,#5F2CDD_50%,#6D3CC3f_100%)]
