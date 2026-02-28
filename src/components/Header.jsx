@@ -1,10 +1,22 @@
 import { FaLocationDot } from "react-icons/fa6";
-import WeatherType from "../assets/rainy-2.svg";
 import { WiHumidity } from "react-icons/wi";
-import { FaTachometerAlt } from "react-icons/fa";
-import { FaWind } from "react-icons/fa";
-import { FiSunrise } from "react-icons/fi";
-import { FiSunset } from "react-icons/fi";
+import { FaTachometerAlt, FaWind } from "react-icons/fa";
+import { FiSunrise, FiSunset } from "react-icons/fi";
+import { getWeatherBackground } from "../utils/weatherBackgrounds";
+
+const formatDate = (date) => {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  }).formatToParts(date);
+
+  const weekday = parts.find((p) => p.type === "weekday")?.value;
+  const day = parts.find((p) => p.type === "day")?.value;
+  const month = parts.find((p) => p.type === "month")?.value;
+
+  return `${weekday}, ${day} ${month}`;
+};
 
 const Header = ({
   name,
@@ -12,71 +24,83 @@ const Header = ({
   temperature,
   humidity,
   pressure,
-  weather,
   wind,
   sunrise,
-  sunset
+  sunset,
+  main,
+  description,
 }) => {
+  // ⭐ get background image from weather type
+  const backgroundImage = getWeatherBackground(main);
+
   return (
-    <div className="bg-[linear-gradient(-45deg,#381A7D_0%,#5F2CDD_50%,#6D3CC3_100%)] flex items-center flex-col flex-4 rounded-b-2xl p-2 ">
-      {name && (
-        <div className="flex items-center text-lg font-semibold text-[#0A111E]">
-          <span>
+    <div className="relative flex items-center flex-col flex-4 rounded-b-2xl p-2 overflow-hidden text-shadow-lg">
+
+      {/* ⭐ Dynamic Weather Background */}
+      <img
+        src={backgroundImage}
+        alt={main}
+        className="absolute inset-0 w-full h-full object-cover opacity-100"
+      />
+
+      {/* Optional gradient overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(-45deg,#381A7D_0%,#5F2CDD_50%,#6D3CC3_100%)] opacity-50"></div>
+
+      {/* Content */}
+      <div className="relative z-10 w-full flex flex-col items-center">
+
+        {name && (
+          <div className="flex items-center text-lg font-semibold text-[#0A111E]">
             <FaLocationDot />
-          </span>
-          <p>
-            {name},{country}
-          </p>
+            <p>{name},{country}</p>
+          </div>
+        )}
+
+        <div className="flex mt-25">
+          <h1 className="font-bold text-8xl">
+            {Number(temperature).toFixed(1)}
+          </h1>
+          <sup className="text-4xl font-semibold text-amber-100 mt-4">°</sup>
         </div>
-      )}
-      {/* <img src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} className="absolute top-0 left-0" /> */}
-      <img src={WeatherType} className="absolute top-0 left-0" />
 
-      <div className="flex mt-25">
-        <h1 className="font-bold text-8xl">{Number(temperature).toFixed(1)}</h1>
-        <sup className="text-xl font-semibold text-white mt-4">o</sup>
-      </div>
-      <p className="font-medium text-white">Expect high rain today</p>
-      <p className=" text-xs font-light text-white">Friday, 5 September</p>
+        <p className="font-medium text-white">{description}</p>
+        <p className="text-xs font-light text-white">
+          {formatDate(new Date())}
+        </p>
 
-      <div className="border w-[70%] my-6 text-blue-200"></div>
+        <div className="border w-[70%] my-6 text-blue-200"></div>
 
-      <div className="flex justify-center text-xs font-light w-full gap-3 text-white ">
-        <div className="flex items-center gap-1 ">
-          <span>
+        <div className="flex justify-center text-xs font-light w-full gap-3 text-white">
+          <div className="flex items-center gap-1">
             <WiHumidity />
-          </span>
-          <span>{Number(humidity)}%</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span>
+            <span>{Number(humidity)}%</span>
+          </div>
+
+          <div className="flex items-center gap-1">
             <FaTachometerAlt />
-          </span>
-          <span>{(Number(pressure) * 0.750062).toFixed(1)}mmHg</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span>
+            <span>{(Number(pressure) * 0.750062).toFixed(1)}mmHg</span>
+          </div>
+
+          <div className="flex items-center gap-1">
             <FaWind />
-          </span>
-          <span>{(wind).toFixed(1)}m/s</span>
+            <span>{Number(wind).toFixed(1)}m/s</span>
+          </div>
         </div>
-      </div>
 
-      <div className="border w-[70%] my-6 text-blue-200"></div>
+        <div className="border w-[70%] my-6 text-blue-200"></div>
 
-      <div className="flex justify-center text-xs font-light w-full gap-3 text-white">
-        <div className="flex items-center gap-1">
-          <span>
+        <div className="flex justify-center text-xs font-light w-full gap-3 text-white">
+          <div className="flex items-center gap-1">
             <FiSunrise />
-          </span>
-          <span>{sunrise}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <span>
+            <span>{sunrise}</span>
+          </div>
+
+          <div className="flex items-center gap-1">
             <FiSunset />
-          </span>
-          <span>{sunset}</span>
+            <span>{sunset}</span>
+          </div>
         </div>
+
       </div>
     </div>
   );

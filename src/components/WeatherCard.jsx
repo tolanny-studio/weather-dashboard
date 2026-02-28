@@ -15,6 +15,9 @@ const WeatherCard = () => {
     wind,
     sunRise,
     sunSet,
+    icon,
+    main,
+    description,
   } = useWeather();
   return (
     <div className="bg-[#0A111E] min-h-screen flex flex-col">
@@ -27,6 +30,9 @@ const WeatherCard = () => {
         wind={wind}
         sunrise={sunRise}
         sunset={sunSet}
+        icon={icon}
+        main={main}
+        description={description}
       />
       <Main />
       <Footer getLocation={getLocation} />
