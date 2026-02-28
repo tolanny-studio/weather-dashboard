@@ -7,13 +7,14 @@ const Footer = ({ getLocation }) => {
     // console.log(location);
   };
   return (
-    <div className=" flex justify-center items-center flex-1 bg-[linear-gradient(45deg,#381A7D_0%,#5F2CDD_50%,#6D3CC3_100%)] rounded-t-2xl">
+    <div className="flex shadow-[0_-10px_30px_rgba(0,0,0,0.3)] bg-[linear-gradient(45deg,#381A7D_0%,#5F2CDD_50%,#6D3CC3_100%)] rounded-t-2xl py-5">
       <form
         action={handleSearchSubmit}
-        className="flex"
+        
+        className=" flex w-full justify-center"
       >
         <input
-          className="rounded-tl-full rounded-bl-full focus:outline-0 p-0.5 pl-4 text-white text-xs bg-[#0A111E]"
+          className="rounded-tl-full rounded-bl-full focus:outline-0 p-0.5 pl-4 text-white text-xs bg-[#0A111E] w-[50%]"
           type="text"
           name="location"
         />

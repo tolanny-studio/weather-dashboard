@@ -9,4 +9,14 @@ export const data = [
     icon: "FaTachometerAlt",
     metric: 3
   },
+    {
+    id: 3,
+    icon: "FaTachometerAlt",
+    metric: 3
+  },
+    {
+    id: 4,
+    icon: "FaTachometerAlt",
+    metric: 3
+  },
 ]

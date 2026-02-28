@@ -1,9 +1,9 @@
 import sunny from "../assets/sunny-4.jpg";
 import cloudy from "../assets/cloudy-1.avif";
-import rainy from "../assets/rainy-2.svg";
-import snowy from "../assets/snowy.svg";
-import stormy from "../assets/stormy.svg";
-import foggy from "../assets/foggy.svg";
+import rainy from "../assets/rainy-6.jpg";
+import snowy from "../assets/snowy-1.jpg";
+import stormy from "../assets/stormy-3.jpg";
+import foggy from "../assets/foggy-1.jpeg";
 
 export const weatherBackgrounds = {
   Clear: sunny,

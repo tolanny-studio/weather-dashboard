@@ -20,7 +20,7 @@ const WeatherCard = () => {
     description,
   } = useWeather();
   return (
-    <div className="bg-[#0A111E] min-h-screen flex flex-col">
+    <div className="bg-[#0A111E] h-screen flex flex-col overflow-hidden">
       <Header
         name={name}
         country={country}

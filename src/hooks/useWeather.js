@@ -5,7 +5,7 @@ import { CanceledError } from "axios";
 function useWeather() {
   const [isLocation, setIsLocation] = useState("");
   const [response, setResponse] = useState({});
-const [error, setError] = useState("");
+  const [error, setError] = useState("");
 
   const name = response?.name;
   const { country = "", sunrise = 0, sunset = 0 } = response?.sys || {};
@@ -21,10 +21,10 @@ const [error, setError] = useState("");
     setIsLocation(location);
   }
 
-const formatTime = (timestamp) => {
-  if (!timestamp) return "";
-  return new Date(timestamp * 1000).toLocaleTimeString();
-};
+  const formatTime = (timestamp) => {
+    if (!timestamp) return "";
+    return new Date(timestamp * 1000).toLocaleTimeString();
+  };
 
   const sunRise = formatTime(sunrise);
   const sunSet = formatTime(sunset);
@@ -73,12 +73,4 @@ const formatTime = (timestamp) => {
 
 export default useWeather;
 
-// const weatherThemes = {
-//   Clear: "sunny",
-//   Clouds: "cloudy",
-//   Rain: "rainy",
-//   Snow: "snowy",
-//   Thunderstorm: "stormy",
-//   Drizzle: "rainy",
-//   Atmosphere: "foggy"
-// };
+
