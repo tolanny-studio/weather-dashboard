@@ -28,7 +28,7 @@ const Header = () => {
 
       
 
-        <div className="flex justify-center text-sm font-semibold w-[70%] gap-3 text-[#0A111E]">
+        <div className="flex justify-center text-xs font-light w-full gap-3 text-white ">
           <div className="flex items-center gap-1 ">
             <span>
               <WiHumidity />
@@ -52,7 +52,7 @@ const Header = () => {
 
         <div className="border w-[70%] my-6 text-blue-200"></div>
 
-        <div className="flex w-[70%] justify-center text-sm font-semibold gap-3">
+        <div className="flex w-[70%] justify-center text-xs font-light w-full gap-3 text-white">
           <div className="flex items-center gap-1">
             <span>
               <FiSunrise />
