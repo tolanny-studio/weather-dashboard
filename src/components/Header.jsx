@@ -5,21 +5,10 @@ import { FaTachometerAlt, FaWind } from "react-icons/fa";
 import { FiSunrise, FiSunset } from "react-icons/fi";
 import { getWeatherBackground } from "../utils/weatherBackgrounds.js";
 import randomCity from "../randomCity.js"
+import { formatDate } from "../formatDate.js";
 
 
-const formatDate = (date) => {
-  const parts = new Intl.DateTimeFormat("en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-  }).formatToParts(date);
 
-  const weekday = parts.find((p) => p.type === "weekday")?.value;
-  const day = parts.find((p) => p.type === "day")?.value;
-  const month = parts.find((p) => p.type === "month")?.value;
-
-  return `${weekday}, ${day} ${month}`;
-};
 
 const Header = ({
   name,
@@ -64,14 +53,14 @@ const Header = ({
           </div>
         )}
 
-        <div className="flex mt-10 md:">
+        <div className="flex mt-10 md:mb-4">
           <h1 className="font-bold text-8xl">
             {Number(temperature).toFixed(1)}
           </h1>
           <sup className="text-4xl font-semibold text-amber-100 mt-4">°</sup>
         </div>
 
-        <p className="font-medium text-white md:text-lg lg:text-2xl">
+        <p className="font-medium text-white md:text-lg md:mb-4 lg:text-2xl">
           {String(description).toUpperCase()}
         </p>
         <p className="text-xs font-light text-white md:font-normal lg:font-medium">

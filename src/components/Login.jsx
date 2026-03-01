@@ -1,6 +1,7 @@
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import AppLogo from "../assets/rainy-2.svg";
+import { formatDate } from "../formatDate";
 
 const Login = ({ getLocation }) => {
   const navigate = useNavigate();
@@ -22,13 +23,16 @@ const Login = ({ getLocation }) => {
 
   return (
     <div className="bg-[linear-gradient(45deg,#381A7D_0%,#5F2CDD_50%,#6D3CC3_100%)] min-h-screen w-full p-10 flex flex-col items-center gap-5">
+      <p className="text-xs font-light text-white md:font-normal md:text-lg lg:font-medium">
+                {formatDate(new Date())}
+              </p>
       <img src={AppLogo} alt="" className="object-cover md:h-70" />
 
       <h1 className="text-center">Weather Dashboard</h1>
 
       <form
         onSubmit={handleSearchSubmit}
-        className="flex flex-col items-center gap-2 w-full"
+        className="flex flex-col items-center gap-4 w-full"
       >
         <input
           placeholder="Enter location"

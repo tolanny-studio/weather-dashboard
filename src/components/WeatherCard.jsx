@@ -10,8 +10,8 @@ const WeatherCard = ({
   humidity,
   pressure,
   wind,
-  sunRise,
-  sunSet,
+  sunrise,
+  sunset,
   icon,
   main,
   description,
@@ -25,8 +25,8 @@ const WeatherCard = ({
         humidity={humidity}
         pressure={pressure}
         wind={wind}
-        sunrise={sunRise}
-        sunset={sunSet}
+        sunrise={sunrise}
+        sunset={sunset}
         icon={icon}
         main={main}
         description={description}
