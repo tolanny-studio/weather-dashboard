@@ -1,24 +1,21 @@
-import React from "react";
 import Header from "./Header";
-import useWeather from "../hooks/useWeather";
 import Main from "./Main";
 import Footer from "./Footer";
 
-const WeatherCard = () => {
-  const {
-    getLocation,
-    name,
-    country,
-    temperature,
-    humidity,
-    pressure,
-    wind,
-    sunRise,
-    sunSet,
-    icon,
-    main,
-    description,
-  } = useWeather();
+const WeatherCard = ({
+  getLocation,
+  name,
+  country,
+  temperature,
+  humidity,
+  pressure,
+  wind,
+  sunRise,
+  sunSet,
+  icon,
+  main,
+  description,
+}) => {
   return (
     <div className="bg-[#0A111E] min-h-screen flex flex-col relative">
       <Header
@@ -39,7 +36,5 @@ const WeatherCard = () => {
     </div>
   );
 };
-
-
 
 export default WeatherCard;

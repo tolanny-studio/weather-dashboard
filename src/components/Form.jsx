@@ -8,16 +8,10 @@ const Form = ({ getLocation }) => {
   };
 
   return (
-    <form
-      action={handleSearchSubmit}
-      className="flex w-full "
-    >
+    <form action={handleSearchSubmit} className="flex w-full ">
       <Input />
 
-      <button
-        type="submit"
-        className="text-2xl text-[#0A111E] p-2 bg-white"
-      >
+      <button type="submit" className="text-2xl text-[#0A111E] p-2 bg-white">
         <FaSearch />
       </button>
     </form>
