@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { WiHumidity } from "react-icons/wi";
 import { FaTachometerAlt, FaWind } from "react-icons/fa";
 import { FiSunrise, FiSunset } from "react-icons/fi";
-import { getWeatherBackground } from "../utils/weatherBackgrounds";
+import { getWeatherBackground } from "../utils/weatherBackgrounds.js";
 import randomCity from "../randomCity.js"
 
 
@@ -43,7 +43,7 @@ const Header = ({
   
 
   return (
-    <div className="relative flex items-center flex-col flex-4 rounded-b-2xl p-2 overflow-hidden text-shadow-lg md:py-6">
+    <div className="relative flex items-center flex-col flex-4 rounded-b-2xl p-2 py-5 overflow-hidden text-shadow-lg md:py-6">
       <img
         src={backgroundImage}
         alt={main}
@@ -64,7 +64,7 @@ const Header = ({
           </div>
         )}
 
-        <div className="flex mt-15 md:">
+        <div className="flex mt-10 md:">
           <h1 className="font-bold text-8xl">
             {Number(temperature).toFixed(1)}
           </h1>
@@ -72,59 +72,59 @@ const Header = ({
         </div>
 
         <p className="font-medium text-white md:text-lg lg:text-2xl">
-          {description}
+          {String(description).toUpperCase()}
         </p>
         <p className="text-xs font-light text-white md:font-normal lg:font-medium">
           {formatDate(new Date())}
         </p>
 
-        <div className="border w-[70%] my-6 text-blue-200"></div>
+        <div className="divider"></div>
 
         <div className="flex justify-center text-xs font-light w-full gap-3 text-white md:text-sm lg:gap-10">
           <div className="flex items-center gap-1">
-            <span className="text-amber-200 lg:text-4xl">
+            <span className="icon">
               <WiHumidity />
             </span>
-            <span className="lg:text-lg font-semibold">
+            <span className="icon-parameter">
               {Number(humidity)}%
             </span>
           </div>
 
           <div className="flex items-center gap-1">
-            <span className="text-amber-200 lg:text-4xl">
+            <span className="icon">
               <FaTachometerAlt />
             </span>
-            <span className="lg:text-lg font-semibold">
+            <span className="icon-parameter">
               {(Number(pressure) * 0.750062).toFixed(1)}mmHg
             </span>
           </div>
 
           <div className="flex items-center gap-1">
-            <span className="text-amber-200 lg:text-4xl">
+            <span className="icon">
               <FaWind />
             </span>
 
-            <span className="lg:text-lg font-semibold">
+            <span className="icon-parameter">
               {Number(wind).toFixed(1)}m/s
             </span>
           </div>
         </div>
 
-        <div className="border w-[70%] my-6 text-blue-200"></div>
+        <div className="divider"></div>
 
         <div className="flex justify-center text-xs font-light w-full gap-3 text-white md:text-sm lg:gap-10">
           <div className="flex items-center gap-1">
-            <span className="text-amber-200 lg:text-4xl">
+            <span className="icon">
               <FiSunrise />
             </span>
-            <span className="lg:text-lg font-semibold">{sunrise}</span>
+            <span className="icon-parameter">{sunrise}</span>
           </div>
 
           <div className="flex items-center gap-1">
-            <span className="text-amber-200 lg:text-4xl">
+            <span className="icon">
               <FiSunset />
             </span>
-            <span className="lg:text-lg font-semibold">{sunset}</span>
+            <span className="icon-parameter">{sunset}</span>
           </div>
         </div>
       </div>

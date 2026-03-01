@@ -19,4 +19,4 @@ export const weatherBackgrounds = {
 };
 
 export const getWeatherBackground = (main) =>
-  weatherBackgrounds[main] || sunny;
+  weatherBackgrounds[main] || rainy;

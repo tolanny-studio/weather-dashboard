@@ -2,7 +2,22 @@
 
 
 @layer base{
-  h1{
-    @apply text-amber-200
+  body{
+    @apply m-0 p-0 box-border
   }
+  h1{
+    @apply text-amber-200 text-3xl font-bold
+  }
+}
+
+@utility icon{
+  @apply text-amber-200 md:text-2xl lg:text-4xl
+}
+
+@utility icon-parameter{
+  @apply lg:text-lg font-semibold
+}
+
+@utility divider{
+  @apply border w-[70%] my-6 text-blue-200 md:w-[40%] xl:mt-10 xl:w-[40%]
 }
